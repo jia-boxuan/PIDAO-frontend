@@ -5,6 +5,7 @@ import { ReactComponent as MenuIcon } from "../../assets/icons/hamburger.svg";
 import OhmMenu from "./OhmMenu.jsx";
 import ThemeSwitcher from "./ThemeSwitch.jsx";
 import ConnectMenu from "./ConnectMenu.jsx";
+import styled from "styled-components";
 import "./topbar.scss";
 
 const useStyles = makeStyles(theme => ({
@@ -32,31 +33,40 @@ function TopBar({ theme, toggleTheme, handleDrawerToggle }) {
   const isVerySmallScreen = useMediaQuery("(max-width: 355px)");
 
   return (
-    <AppBar position="sticky" className={classes.appBar} elevation={0}>
-      <Toolbar disableGutters className="dapp-topbar">
-        <Button
-          id="hamburger"
-          aria-label="open drawer"
-          edge="start"
-          size="large"
-          variant="contained"
-          color="secondary"
-          onClick={handleDrawerToggle}
-          className={classes.menuButton}
-        >
-          <SvgIcon component={MenuIcon} />
-        </Button>
+    // <AppBar position="sticky" className={classes.appBar} elevation={0}>
+    //   <Toolbar disableGutters className="dapp-topbar">
+    //     <Button
+    //       id="hamburger"
+    //       aria-label="open drawer"
+    //       edge="start"
+    //       size="large"
+    //       variant="contained"
+    //       color="secondary"
+    //       onClick={handleDrawerToggle}
+    //       className={classes.menuButton}
+    //     >
+    //       <SvgIcon component={MenuIcon} />
+    //     </Button>
 
-        <Box display="flex">
-          {!isVerySmallScreen && <OhmMenu />}
+    //     <Box display="flex">
+    //       {!isVerySmallScreen && <OhmMenu />}
 
-          <ConnectMenu theme={theme} />
+    //       <ConnectMenu theme={theme} />
 
-          {/* <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} /> */}
-        </Box>
-      </Toolbar>
-    </AppBar>
+    //       <ThemeSwitcher theme={theme} toggleTheme={toggleTheme} />
+    //     </Box>
+    //   </Toolbar>
+    // </AppBar>
+    <TopBarBox>
+
+    </TopBarBox>
   );
 }
 
 export default TopBar;
+
+const TopBarBox = styled.div`
+  width: 100%;
+  height: 130px;
+  background: red;
+`
